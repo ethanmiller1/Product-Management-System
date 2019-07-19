@@ -1,5 +1,8 @@
 package model;
 
+import lombok.Data;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
@@ -23,7 +26,4 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name="role")
     private Role role;
-
-    @Transient
-    private String token;
-}
+}g
