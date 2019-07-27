@@ -65,4 +65,23 @@
             TRUNCATE TABLE product;
         </rollback>
     </changeSet>
+    <!--CREATE TRANSACTION TABLE HERE-->
+    <changeSet id="4" author="sha">
+        <sql>
+            CREATE TABLE transaction(
+            id BIGINT NOT NULL AUTO_INCREMENT,
+            product_id BIGINT NOT NULL,
+            user_id BIGINT NOT NULL,
+            purchase_date DATETIME NOT NULL,
+            CONSTRAINT PK_id PRIMARY KEY (id),
+            CONSTRAINT fk_tran_product FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE ON UPDATE
+            CASCADE,
+            CONSTRAINT fk_tran_user FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE ON UPDATE
+            CASCADE
+            );
+        </sql>
+        <rollback>
+            DROP TABLE transaction;
+        </rollback>
+    </changeSet>
 </databaseChangeLog>
