@@ -1,4 +1,4 @@
-package model;
+package com.sha.serverproductmanagement.model;
 
 import lombok.Data;
 import javax.persistence.*;

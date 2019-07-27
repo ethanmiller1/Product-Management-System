@@ -1,4 +1,4 @@
-package model;
+package com.sha.serverproductmanagement.model;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
-    @GenerateValue(strategy - GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="name")
@@ -26,4 +26,7 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name="role")
     private Role role;
-}g
+
+    @Transient
+    private String token;
+}

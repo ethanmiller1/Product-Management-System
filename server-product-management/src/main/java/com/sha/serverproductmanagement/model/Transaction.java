@@ -1,6 +1,7 @@
-package model;
+package com.sha.serverproductmanagement.model;
 
 import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;

@@ -1,6 +1,7 @@
-package model;
+package com.sha.serverproductmanagement.model;
 
-public class Role {
-    // Two possible values
+public enum Role {
     USER, ADMIN
 }
+
+
