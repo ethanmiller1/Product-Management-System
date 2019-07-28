@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -28,22 +28,27 @@ public class UserServiceImpl {
 
     //save = create or update
     @Override
-    public void updateUser(final Long userId) {
-        userRepository.delete(userId);
+    public User updateUser(final User user){
+        return userRepository.save(user);
     }
 
     @Override
-    public User findByUserName(final String username) {
+    public void deleteUser(final Long userId){
+        userRepository.deleteById(userId);
+    }
+
+    @Override
+    public User findByUsername(final String username){
         return userRepository.findByUsername(username).orElse(null);
     }
 
     @Override
-    public List<User> findAllUsers() {
+    public List<User> findAllUsers(){
         return userRepository.findAll();
     }
 
     @Override
-    public Long numberOfUsers() {
+    public Long numberOfUsers(){
         return userRepository.count();
     }
 }

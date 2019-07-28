@@ -53,7 +53,6 @@ public class UserController {
         }
         return new ResponseEntity<>(
                 userService.findByUsername(principal.getName()), HttpStatus.OK);
-        );
     }
 
     // PURCHASE PRODUCT.
